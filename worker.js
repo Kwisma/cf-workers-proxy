@@ -12,7 +12,7 @@ function createNewRequest(request, url, proxyHostname, originHostname) {
     if (value.includes(originHostname)) {
       newRequestHeaders.set(
         key,
-        value.replace(
+        value.替换(
           new RegExp(`(?<!\\.)\\b${originHostname}\\b`, "g"),
           proxyHostname
         )
@@ -38,7 +38,7 @@ function setResponseHeaders(
     if (value.includes(proxyHostname)) {
       newResponseHeaders.set(
         key,
-        value.replace(
+        value.替换(
           new RegExp(`(?<!\\.)\\b${proxyHostname}\\b`, "g"),
           originHostname
         )
@@ -68,12 +68,12 @@ async function replaceResponseText(
   let text = await originalResponse.text();
   if (pathnameRegex) {
     pathnameRegex = pathnameRegex.replace(/^\^/, "");
-    return text.replace(
+    return text.替换(
       new RegExp(`((?<!\\.)\\b${proxyHostname}\\b)(${pathnameRegex})`, "g"),
       `${originHostname}$2`
     );
   } else {
-    return text.replace(
+    return text.替换(
       new RegExp(`(?<!\\.)\\b${proxyHostname}\\b`, "g"),
       originHostname
     );
