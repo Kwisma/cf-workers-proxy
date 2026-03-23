@@ -6,7 +6,7 @@
   "scripts": {
     "lint:prettier": "prettier --write \"**/*.{js,cjs,ts,json,tsx,css,less,scss,vue,html,md}\""
   },
-  "devDependencies": {
+  "devDependencies": { 
     "prettier": "^2.8.7"
   },
   "engines": {
